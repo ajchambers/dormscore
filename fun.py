@@ -29,21 +29,29 @@ try:
 
     insert_script = 'INSERT INTO dorm (id, dorm_name, university, address, avg_score, url, number_of_reviews) VALUES(%s, %s, %s, %s, %s, %s, %s)'
 
-    insert_values = [(1, 'example_dorm', 'Central Michigan University', '123 University Drive, Mount Pleasant, MI', 4.3, 'https://www.google.com', 451), (2, 'example_dorm2', 'Central Michigan University', '543 University Drive, Mount Pleasant, MI', 1.3, 'https://www.google.com', 12)]
+    insert_values = [(1, 'emmons', 'Central Michigan University', '500 Ojibway Ct, Mt Pleasant, MI 48858', 0, 'https://www.cmich.edu/student-life/housing/living-on-campus/housing-communities/east-community', 0), 
+                     
+                     (2, 'herring', 'Central Michigan University', '403 E Broomfield St, Mt Pleasant, MI 48858', 0, 'https://www.cmich.edu/student-life/housing/living-on-campus/housing-communities/east-community', 0), 
+
+                     (3, 'saxe', 'Central Michigan Univeristy', 'Saxe Hall, Mt Pleasant, MI 48858', 0, 'https://www.cmich.edu/student-life/housing/living-on-campus/housing-communities/east-community', 1)]
 
     for records in insert_values:
         cur.execute(insert_script, records)
 
 
 
-    cur.execute('select * from dorm')
+    
+
+    cur.execute("select dorm_name, address from dorm where university = 'Central Michigan University'")
 
     for record in cur.fetchall():
         print(record)
 
-    #uses dictionary to fetch by column name
+    cur.execute("select * from dorm")
+    
     for record in cur.fetchall():
         print(record['dorm_name'], record['avg_score'])
+
     
 
 
