@@ -1,72 +1,76 @@
 import psycopg2
 import psycopg2.extras
 
-
 conn = None
 cur = None
+
 try:
     conn = psycopg2.connect(
-        host = 'localhost',
-        dbname = 'dormscore_v1',
-        user = 'postgres',
-        password = 'coffee',
-        port = 5432)
-    
-    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+        host='localhost',
+        dbname='dormscore_v1',
+        user='postgres',
+        password='coffee',
+        port=5432
+    )
 
-    cur.execute('drop table if exists dorm')
+    def create_dorm_table(conn):
+        cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+        cur.execute('drop table if exists dorm')
 
-    create_script = ''' create table if not exists dorm(
-                                        id  int primary key,
-                                        dorm_name text not null,
-                                        university text not null,
-                                        address text,
-                                        avg_score int,
-                                        url text,
-                                        number_of_reviews int)'''
+        create_script = ''' create table if not exists dorm(
+                            id  serial primary key,
+                            dorm_name text not null,
+                            university text not null,
+                            address text,
+                            avg_score int,
+                            url text,
+                            number_of_reviews int)'''
 
-    cur.execute(create_script)
+        cur.execute(create_script)
 
-    insert_script = 'INSERT INTO dorm (id, dorm_name, university, address, avg_score, url, number_of_reviews) VALUES(%s, %s, %s, %s, %s, %s, %s)'
+    def insert_dorm_records(conn, records):
+        cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+        insert_script = 'INSERT INTO dorm (dorm_name, university, address, avg_score, url, number_of_reviews) VALUES(%s, %s, %s, %s, %s, %s)'
 
-    insert_values = [(1, 'emmons', 'Central Michigan University', '500 Ojibway Ct, Mt Pleasant, MI 48858', 0, 'https://www.cmich.edu/student-life/housing/living-on-campus/housing-communities/east-community', 0), 
-                     
-                     (2, 'herring', 'Central Michigan University', '403 E Broomfield St, Mt Pleasant, MI 48858', 0, 'https://www.cmich.edu/student-life/housing/living-on-campus/housing-communities/east-community', 0), 
+        for record in records:
+            cur.execute(insert_script, record)
 
-                     (3, 'saxe', 'Central Michigan Univeristy', 'Saxe Hall, Mt Pleasant, MI 48858', 0, 'https://www.cmich.edu/student-life/housing/living-on-campus/housing-communities/east-community', 1)]
+    def fetch_dorms_by_university(conn, university):
+        cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+        cur.execute("SELECT dorm_name, address FROM dorm WHERE university = %s", (university,))
+        return cur.fetchall()
 
-    for records in insert_values:
-        cur.execute(insert_script, records)
+    def fetch_all_dorms(conn):
+        cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+        cur.execute("SELECT * FROM dorm")
+        return cur.fetchall()
 
+    create_dorm_table(conn)
 
+    insert_values = [
+        ('emmons', 'Central Michigan University', '500 Ojibway Ct, Mt Pleasant, MI 48858', 0, 'https://www.cmich.edu/student-life/housing/living-on-campus/housing-communities/east-community', 0),
+        ('herring', 'Central Michigan University', '403 E Broomfield St, Mt Pleasant, MI 48858', 0, 'https://www.cmich.edu/student-life/housing/living-on-campus/housing-communities/east-community', 0),
+        ('saxe', 'Central Michigan University', 'Saxe Hall, Mt Pleasant, MI 48858', 0, 'https://www.cmich.edu/student-life/housing/living-on-campus/housing-communities/east-community', 1)
+    ]
 
-    
+    insert_dorm_records(conn, insert_values)
 
-    cur.execute("select dorm_name, address from dorm where university = 'Central Michigan University'")
-
-    for record in cur.fetchall():
+    university = 'Central Michigan University'
+    dorms = fetch_dorms_by_university(conn, university)
+    for record in dorms:
         print(record)
 
-    cur.execute("select * from dorm")
-    
-    for record in cur.fetchall():
+    all_dorms = fetch_all_dorms(conn)
+    for record in all_dorms:
         print(record['dorm_name'], record['avg_score'])
-
-    
-
-
 
     conn.commit()
 
-
-    
-
 except Exception as error:
     print(error)
+
 finally:
     if cur is not None:
         cur.close()
     if conn is not None:
         conn.close()
-
-
