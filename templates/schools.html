@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dorm Information</title>
+</head>
+
+<body>
+    {% extends "nav.html" %}
+{% block content %}
+    <h2>Dorms at Central Michigan University</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Dorm Name</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dorm in dorms_cmich %}
+            <tr>
+                <td>{{ dorm['dorm_name'] }}</td>
+                <td>{{ dorm['address'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>All Dorms</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Dorm Name</th>
+                <th>Avg Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dorm in all_dorms %}
+            <tr>
+                <td>{{ dorm['dorm_name'] }}</td>
+                <td>{{ dorm['avg_score'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}
+</body>
+
+</html>
