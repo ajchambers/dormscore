@@ -19,7 +19,7 @@
         <tbody>
             {% for dorm in dorms_cmich %}
             <tr>
-                <td>{{ dorm['dorm_name'] }}</td>
+                <td><a href="{{ url_for('dorm', dorm_name=dorm['dorm_name']) }}">{{ dorm['dorm_name'] }}</a></td>
                 <td>{{ dorm['address'] }}</td>
             </tr>
             {% endfor %}

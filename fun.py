@@ -6,7 +6,7 @@ conn = None
 cur = None
 
 def fetch_dorms_by_university(university):
-    # Fetch data from PostgreSQL and return it
+    
     conn = psycopg2.connect(
         host='localhost',
         dbname='dormscore_v1',
@@ -15,13 +15,13 @@ def fetch_dorms_by_university(university):
         port=5432
     )
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-    cur.execute("SELECT dorm_name, address FROM dorm WHERE university = %s", (university,))
+    cur.execute("SELECT dorm_name, address, url FROM dorm WHERE university = %s", (university,))
     dorms = cur.fetchall()
     conn.close()
     return dorms
 
 def fetch_all_dorms():
-    # Fetch data from PostgreSQL and return it
+   
     conn = psycopg2.connect(
         host='localhost',
         dbname='dormscore_v1',
@@ -34,3 +34,6 @@ def fetch_all_dorms():
     all_dorms = cur.fetchall()
     conn.close()
     return all_dorms
+
+def fetch_dorm_data(dorm_name):
+    return f'{dorm_name}.html'
