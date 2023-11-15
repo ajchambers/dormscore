@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<body>
+
+    <form id="registration-form">
+        <label for="firstname">First Name<span id="required-field" style="color: red;">*</span></label>
+        <input type="text" name="firstname" id="firstname" placeholder="Tom" required>
+
+        <label for="lastname">Last Name<span id="required-field" style="color: red;">*</span></label>
+        <input type="text" name="lastname" id="lastname" placeholder="Riddle" required>
+
+        <label for="university">University<span id="required-field" style="color: red;">*</span></label>
+        <input type="text" name="university" id="university" placeholder="Central Michigan University" required>
+
+        <label for="major">Major<span id="required-field" style="color: red;">*</span></label>
+        <input type="text" name="major" id="major" placeholder="Computer Science" required>
+
+
+        
+        <label for="email">Email<span id="required-field" style="color: red;">*</span></label>
+        <input type="email" name="email" id="email" placeholder="yourEmailHere@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+              
+        <label for="email2">Re-Enter Email<span id="required-field" style="color: red;">*</span></label>
+        <input type="email" name="email2" id="email2" required>
+        <span id="email-match-error" style="color: red;"></span>
+           
+
+
+
+        <label for="password">Password<span id="required-field" style="color: red;">*</span></label>
+        <input type="password" name="password" id="password" placeholder="password" required pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}">
+        <span class="password-hint">Must be at least 8 characters long and include at least one number and one letter.</span>
+
+        <label for="phone">Phone Number<span id="required-field" style="color: red;">*</span></label>
+        <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required>
+
+        <label for="gender" style="text-decoration: underline; font-size: 20px;">Gender:</label>
+        <div class="radio-container">
+            <div class="radio-label">
+                <input type="radio" name="gender" id="male" value="Male">
+                <label for="male" style="font-size: 18px;">Male</label>
+            </div>
+            <div class="radio-label">
+                <input type="radio" name="gender" id="female" value="Female">
+                <label for="female" style="font-size: 18px;">Female</label>
+            </div>
+            <div class="radio-label">
+                <input type="radio" name="gender" id="other-radio" value="Other">
+                <label for="other-radio" style="font-size: 18px;">Other</label>
+            </div>
+        </div>
+       
+
+        <label for="state">State</label>
+        <input type="text" name="state" id="state" list="state-list">
+        <datalist id="state-list">
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI" selected>Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+            <option value="AS">American Samoa</option>
+            <option value="GU">Guam</option>
+            <option value="MP">Northern Mariana Islands</option>
+            <option value="PR">Puerto Rico</option>
+            <option value="UM">United States Minor Outlying Islands</option>
+            <option value="VI">Virgin Islands</option>
+            <option value="NA">Outside of US</option>
+        </datalist>
+
+        <label for="zipcode">Zip Code</label>
+        <input type="text" id="zipcode" name="zipcode" pattern="[0-9]{5}" placeholder="12345">
+   
+
+        <input type="submit" id="register" value="Register">
+        <input type="reset" id="reset" value="Reset">
+
+
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../static/js/app.js"></script>
+    
+</body>
+</html>
