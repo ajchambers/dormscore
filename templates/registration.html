@@ -1,134 +1,556 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
-</head>
-<body>
+  <head>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>DormScore</title>
+      <!--====== Bootstrap CSS ======-->
+      <link
+        rel="stylesheet"
+        href="https://cdn.ayroui.com/1.0/css/bootstrap.min.css"
+      />
 
-    <form id="registration-form">
-        <label for="firstname">First Name<span id="required-field" style="color: red;">*</span></label>
-        <input type="text" name="firstname" id="firstname" placeholder="Tom" required>
+      <!--====== Lineicons CSS ======-->
+      <link
+        href="https://cdn.lineicons.com/3.0/lineicons.css"
+        rel="stylesheet"
+      />
 
-        <label for="lastname">Last Name<span id="required-field" style="color: red;">*</span></label>
-        <input type="text" name="lastname" id="lastname" placeholder="Riddle" required>
+      <!--====== Style css ======-->
+      <link
+        rel="stylesheet"
+        href="https://cdn.ayroui.com/1.0/css/starter.css"
+      />
 
-        <label for="university">University<span id="required-field" style="color: red;">*</span></label>
-        <input type="text" name="university" id="university" placeholder="Central Michigan University" required>
+      <!-- <script
+            src="https://kit.fontawesome.com/c98bbfd013.js"
+            crossorigin="anonymous"
+          ></script> -->
 
-        <label for="major">Major<span id="required-field" style="color: red;">*</span></label>
-        <input type="text" name="major" id="major" placeholder="Computer Science" required>
+      <link rel="stylesheet" href="app.css" />
+    </head>
+  </head>
 
-
-        
-        <label for="email">Email<span id="required-field" style="color: red;">*</span></label>
-        <input type="email" name="email" id="email" placeholder="yourEmailHere@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
-              
-        <label for="email2">Re-Enter Email<span id="required-field" style="color: red;">*</span></label>
-        <input type="email" name="email2" id="email2" required>
-        <span id="email-match-error" style="color: red;"></span>
-           
-
-
-
-        <label for="password">Password<span id="required-field" style="color: red;">*</span></label>
-        <input type="password" name="password" id="password" placeholder="password" required pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}">
-        <span class="password-hint">Must be at least 8 characters long and include at least one number and one letter.</span>
-
-        <label for="phone">Phone Number<span id="required-field" style="color: red;">*</span></label>
-        <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required>
-
-        <label for="gender" style="text-decoration: underline; font-size: 20px;">Gender:</label>
-        <div class="radio-container">
-            <div class="radio-label">
-                <input type="radio" name="gender" id="male" value="Male">
-                <label for="male" style="font-size: 18px;">Male</label>
-            </div>
-            <div class="radio-label">
-                <input type="radio" name="gender" id="female" value="Female">
-                <label for="female" style="font-size: 18px;">Female</label>
-            </div>
-            <div class="radio-label">
-                <input type="radio" name="gender" id="other-radio" value="Other">
-                <label for="other-radio" style="font-size: 18px;">Other</label>
-            </div>
+  <body>
+    <!--====== NAVBAR START ======-->
+    <section class="navbar-area navbar-two">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg">
+              <a class="navbar-brand" href="index.html">
+                <span>Dorm</span>Score</a
+              >
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarTwo"
+                aria-controls="navbarTwo"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
+                <ul class="navbar-nav m-auto">
+                  <li class="nav-item">
+                    <a class="" href="index.html">Search</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="javascript:void(0)">Resources</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="javascript:void(0)">About Us</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="navbar-btn d-none d-sm-inline-block">
+                <ul>
+                  <li>
+                    <a class="btn primary-btn square" href="login.html">
+                      Sign In
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="btn primary-btn-outline square"
+                      href="registration.html"
+                    >
+                      Sign Up
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <!-- navbar -->
+          </div>
         </div>
-       
+        <!-- row -->
+      </div>
+      <!-- container -->
+    </section>
+    <!--====== NAVBAR ENDS ======-->
+    <!-- <form id="registration-form">
+      <label for="firstname"
+        >First Name<span id="required-field" style="color: red">*</span></label
+      >
+      <input
+        type="text"
+        name="firstname"
+        id="firstname"
+        placeholder="Tom"
+        required
+      />
 
-        <label for="state">State</label>
-        <input type="text" name="state" id="state" list="state-list">
-        <datalist id="state-list">
-            <option value="AL">Alabama</option>
-            <option value="AK">Alaska</option>
-            <option value="AZ">Arizona</option>
-            <option value="AR">Arkansas</option>
-            <option value="CA">California</option>
-            <option value="CO">Colorado</option>
-            <option value="CT">Connecticut</option>
-            <option value="DE">Delaware</option>
-            <option value="DC">District of Columbia</option>
-            <option value="FL">Florida</option>
-            <option value="GA">Georgia</option>
-            <option value="HI">Hawaii</option>
-            <option value="ID">Idaho</option>
-            <option value="IL">Illinois</option>
-            <option value="IN">Indiana</option>
-            <option value="IA">Iowa</option>
-            <option value="KS">Kansas</option>
-            <option value="KY">Kentucky</option>
-            <option value="LA">Louisiana</option>
-            <option value="ME">Maine</option>
-            <option value="MD">Maryland</option>
-            <option value="MA">Massachusetts</option>
-            <option value="MI" selected>Michigan</option>
-            <option value="MN">Minnesota</option>
-            <option value="MS">Mississippi</option>
-            <option value="MO">Missouri</option>
-            <option value="MT">Montana</option>
-            <option value="NE">Nebraska</option>
-            <option value="NV">Nevada</option>
-            <option value="NH">New Hampshire</option>
-            <option value="NJ">New Jersey</option>
-            <option value="NM">New Mexico</option>
-            <option value="NY">New York</option>
-            <option value="NC">North Carolina</option>
-            <option value="ND">North Dakota</option>
-            <option value="OH">Ohio</option>
-            <option value="OK">Oklahoma</option>
-            <option value="OR">Oregon</option>
-            <option value="PA">Pennsylvania</option>
-            <option value="RI">Rhode Island</option>
-            <option value="SC">South Carolina</option>
-            <option value="SD">South Dakota</option>
-            <option value="TN">Tennessee</option>
-            <option value="TX">Texas</option>
-            <option value="UT">Utah</option>
-            <option value="VT">Vermont</option>
-            <option value="VA">Virginia</option>
-            <option value="WA">Washington</option>
-            <option value="WV">West Virginia</option>
-            <option value="WI">Wisconsin</option>
-            <option value="WY">Wyoming</option>
-            <option value="AS">American Samoa</option>
-            <option value="GU">Guam</option>
-            <option value="MP">Northern Mariana Islands</option>
-            <option value="PR">Puerto Rico</option>
-            <option value="UM">United States Minor Outlying Islands</option>
-            <option value="VI">Virgin Islands</option>
-            <option value="NA">Outside of US</option>
-        </datalist>
+      <label for="lastname"
+        >Last Name<span id="required-field" style="color: red">*</span></label
+      >
+      <input
+        type="text"
+        name="lastname"
+        id="lastname"
+        placeholder="Riddle"
+        required
+      />
 
-        <label for="zipcode">Zip Code</label>
-        <input type="text" id="zipcode" name="zipcode" pattern="[0-9]{5}" placeholder="12345">
-   
+      <label for="university"
+        >University<span id="required-field" style="color: red">*</span></label
+      >
+      <input
+        type="text"
+        name="university"
+        id="university"
+        placeholder="Central Michigan University"
+        required
+      />
 
-        <input type="submit" id="register" value="Register">
-        <input type="reset" id="reset" value="Reset">
+      <label for="major"
+        >Major<span id="required-field" style="color: red">*</span></label
+      >
+      <input
+        type="text"
+        name="major"
+        id="major"
+        placeholder="Computer Science"
+        required
+      />
 
+      <label for="email"
+        >Email<span id="required-field" style="color: red">*</span></label
+      >
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="yourEmailHere@gmail.com"
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+        required
+      />
 
-    </form>
+      <label for="email2"
+        >Re-Enter Email<span id="required-field" style="color: red"
+          >*</span
+        ></label
+      >
+      <input type="email" name="email2" id="email2" required />
+      <span id="email-match-error" style="color: red"></span>
+
+      <label for="password"
+        >Password<span id="required-field" style="color: red">*</span></label
+      >
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="password"
+        required
+        pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}"
+      />
+      <span class="password-hint"
+        >Must be at least 8 characters long and include at least one number and
+        one letter.</span
+      >
+
+      <label for="phone"
+        >Phone Number<span id="required-field" style="color: red"
+          >*</span
+        ></label
+      >
+      <input
+        type="tel"
+        name="phone"
+        id="phone"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        placeholder="123-456-7890"
+        required
+      />
+
+      <label for="gender" style="text-decoration: underline; font-size: 20px"
+        >Gender:</label
+      >
+      <div class="radio-container">
+        <div class="radio-label">
+          <input type="radio" name="gender" id="male" value="Male" />
+          <label for="male" style="font-size: 18px">Male</label>
+        </div>
+        <div class="radio-label">
+          <input type="radio" name="gender" id="female" value="Female" />
+          <label for="female" style="font-size: 18px">Female</label>
+        </div>
+        <div class="radio-label">
+          <input type="radio" name="gender" id="other-radio" value="Other" />
+          <label for="other-radio" style="font-size: 18px">Other</label>
+        </div>
+      </div>
+
+      <label for="state">State</label>
+      <input type="text" name="state" id="state" list="state-list" />
+      <datalist id="state-list">
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR">Arkansas</option>
+        <option value="CA">California</option>
+        <option value="CO">Colorado</option>
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="DC">District of Columbia</option>
+        <option value="FL">Florida</option>
+        <option value="GA">Georgia</option>
+        <option value="HI">Hawaii</option>
+        <option value="ID">Idaho</option>
+        <option value="IL">Illinois</option>
+        <option value="IN">Indiana</option>
+        <option value="IA">Iowa</option>
+        <option value="KS">Kansas</option>
+        <option value="KY">Kentucky</option>
+        <option value="LA">Louisiana</option>
+        <option value="ME">Maine</option>
+        <option value="MD">Maryland</option>
+        <option value="MA">Massachusetts</option>
+        <option value="MI" selected>Michigan</option>
+        <option value="MN">Minnesota</option>
+        <option value="MS">Mississippi</option>
+        <option value="MO">Missouri</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NV">Nevada</option>
+        <option value="NH">New Hampshire</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NM">New Mexico</option>
+        <option value="NY">New York</option>
+        <option value="NC">North Carolina</option>
+        <option value="ND">North Dakota</option>
+        <option value="OH">Ohio</option>
+        <option value="OK">Oklahoma</option>
+        <option value="OR">Oregon</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="RI">Rhode Island</option>
+        <option value="SC">South Carolina</option>
+        <option value="SD">South Dakota</option>
+        <option value="TN">Tennessee</option>
+        <option value="TX">Texas</option>
+        <option value="UT">Utah</option>
+        <option value="VT">Vermont</option>
+        <option value="VA">Virginia</option>
+        <option value="WA">Washington</option>
+        <option value="WV">West Virginia</option>
+        <option value="WI">Wisconsin</option>
+        <option value="WY">Wyoming</option>
+        <option value="AS">American Samoa</option>
+        <option value="GU">Guam</option>
+        <option value="MP">Northern Mariana Islands</option>
+        <option value="PR">Puerto Rico</option>
+        <option value="UM">United States Minor Outlying Islands</option>
+        <option value="VI">Virgin Islands</option>
+        <option value="NA">Outside of US</option>
+      </datalist>
+
+      <label for="zipcode">Zip Code</label>
+      <input
+        type="text"
+        id="zipcode"
+        name="zipcode"
+        pattern="[0-9]{5}"
+        placeholder="12345"
+      />
+
+      <input type="submit" id="register" value="Register" />
+      <input type="reset" id="reset" value="Reset" />
+    </form> -->
+
+    <!--====== SIGNUP FORM START ======-->
+    <section class="signin-area signin-area-five">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3 col-12">
+            <div class="sing-in-form-area">
+              <h4 class="sing-in-title">
+                <i class="lni lni-user"></i> Register.
+              </h4>
+              <p class="text">
+                Join DormScore – where your dormitory experience matters. Sign
+                up now and become part of a community that understands the
+                importance of choosing the right place to call home during your
+                college years.
+              </p>
+              <div class="sing-in-form-wrapper form-style-one">
+                <form id="registration-form" action="#">
+                  <div class="form-input">
+                    <label for="firstname"
+                      >First Name<span id="required-field" style="color: red"
+                        >*</span
+                      ></label
+                    >
+                    <div class="input-items default">
+                      <input
+                        type="text"
+                        name="firstname"
+                        id="firstname"
+                        placeholder="Tom"
+                        required
+                      />
+                      <i class="lni lni-user"></i>
+                    </div>
+                  </div>
+                  <!-- form input -->
+                  <div class="form-input">
+                    <label for="lastname"
+                      >Last Name<span id="required-field" style="color: red"
+                        >*</span
+                      ></label
+                    >
+                    <div class="input-items default">
+                      <input
+                        type="text"
+                        name="lastname"
+                        id="lastname"
+                        placeholder="Riddle"
+                        required
+                      />
+                      <i class="lni lni-user"></i>
+                    </div>
+                  </div>
+                  <!-- form input -->
+                  <div class="form-input">
+                    <label for="university"
+                      >University<span id="required-field" style="color: red"
+                        >*</span
+                      ></label
+                    >
+                    <div class="input-items default">
+                      <input
+                        type="text"
+                        name="university"
+                        id="university"
+                        placeholder="Central Michigan University"
+                        required
+                      />
+                      <i class="lni lni-envelope"></i>
+                    </div>
+                  </div>
+                  <!-- form input -->
+                  <div class="form-input">
+                    <label for="major"
+                      >Major<span id="required-field" style="color: red"
+                        >*</span
+                      ></label
+                    >
+                    <div class="input-items default">
+                      <input
+                        type="text"
+                        name="major"
+                        id="major"
+                        placeholder="Computer Science"
+                        required
+                      />
+                      <i class="lni lni-laptop"></i>
+                    </div>
+                  </div>
+                  <!-- form input -->
+                  <div class="form-input">
+                    <label for="email"
+                      >Email<span id="required-field" style="color: red"
+                        >*</span
+                      ></label
+                    >
+                    <div class="input-items default">
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="yourEmailHere@gmail.com"
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                        required
+                      />
+                      <i class="lni lni-envelope"></i>
+                    </div>
+                  </div>
+                  <!-- form input -->
+                  <div class="form-input">
+                    <label for="email2"
+                      >Re-Enter Email<span
+                        id="required-field"
+                        style="color: red"
+                        >*</span
+                      ></label
+                    >
+                    <div class="input-items default">
+                      <input
+                        type="email"
+                        placeholder="yourEmailHere@gmail.com"
+                        name="email2"
+                        id="email2"
+                        required
+                      />
+                      <i class="lni lni-envelope"></i>
+                    </div>
+                    <span id="email-match-error" style="color: red"></span>
+                  </div>
+                  <!-- form input -->
+                  <div class="form-input">
+                    <label for="password"
+                      >Password<span id="required-field" style="color: red"
+                        >*</span
+                      ></label
+                    >
+                    <div class="input-items default">
+                      <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="password"
+                        required
+                        pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}"
+                      />
+                      <i class="lni lni-key"></i>
+                    </div>
+                  </div>
+                  <!-- form input -->
+                  <div class="form-input">
+                    <label for="phone"
+                      >Phone Number<span id="required-field" style="color: red"
+                        >*</span
+                      ></label
+                    >
+                    <div class="input-items default">
+                      <input
+                        type="tel"
+                        name="phone"
+                        id="phone"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                        placeholder="123-456-7890"
+                        required
+                      />
+                      <i class="lni lni-phone"></i>
+                    </div>
+                  </div>
+                  <!-- form input -->
+                  <div class="form-input">
+                    <label style="">Gender:</label>
+                    <div class="radio-container">
+                      <div class="radio-label">
+                        <input
+                          type="radio"
+                          name="gender"
+                          id="male"
+                          value="Male"
+                        />
+                        <label for="male" style="font-size: 18px">Male</label>
+                      </div>
+                      <div class="radio-label">
+                        <input
+                          type="radio"
+                          name="gender"
+                          id="female"
+                          value="Female"
+                        />
+                        <label for="female" style="font-size: 18px"
+                          >Female</label
+                        >
+                      </div>
+                      <div class="radio-label">
+                        <input
+                          type="radio"
+                          name="gender"
+                          id="other-radio"
+                          value="Other"
+                        />
+                        <label for="other-radio" style="font-size: 18px"
+                          >Other</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <!-- form input -->
+                  <div class="form-input">
+                    <label for="state">State</label>
+                    <div class="input-items default">
+                      <input
+                        type="text"
+                        name="state"
+                        id="state"
+                        list="state-list"
+                      />
+                      <datalist id="state-list">
+                        <!-- State options from the first HTML -->
+                        <!-- ... -->
+                      </datalist>
+                    </div>
+                  </div>
+                  <!-- form input -->
+                  <div class="form-input">
+                    <label for="zipcode">Zip Code</label>
+                    <div class="input-items default">
+                      <input
+                        type="text"
+                        id="zipcode"
+                        name="zipcode"
+                        pattern="[0-9]{5}"
+                        placeholder="12345"
+                      />
+                      <i class="lni lni-map"></i>
+                    </div>
+                  </div>
+                  <!-- form input -->
+                  <div class="single-form d-sm-flex justify-content-between">
+                    <div class="form-checkbox">
+                      <input type="checkbox" name="checkbox2" id="checkbox2" />
+                      <label for="checkbox2"></label>
+                      <span>I agree to the terms and policy.</span>
+                    </div>
+                  </div>
+                  <!-- form input -->
+                  <div class="single-form standard-buttons">
+                    <button type="submit" class="btn primary-btn square">
+                      Sign Up!
+                    </button>
+                  </div>
+                  <!-- form input -->
+                </form>
+
+                <div class="new-user text-center">
+                  <p class="text">
+                    Already have an account?
+                    <a href="login.html">Sign in</a>
+                  </p>
+                </div>
+              </div>
+              <!-- sing in form wrapper -->
+            </div>
+            <!-- sing in form area -->
+          </div>
+        </div>
+        <!-- row -->
+      </div>
+      <!-- container -->
+    </section>
+    <!--====== SIGNUP FORM ENDS ======-->
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../static/js/app.js"></script>
-    
-</body>
+  </body>
 </html>
